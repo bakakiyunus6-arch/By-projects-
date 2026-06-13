@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HireConnect Uganda | Job Recruitment Platform</title>
+    <meta name="description" content="Connect with top professional talent and employers across Uganda. Register as a candidate or request premium candidate introductions today.">
+    
+    <!-- Open Graph Social Metadata -->
+    <meta property="og:title" content="HireConnect Uganda | Job Recruitment Platform">
+    <meta property="og:description" content="Connecting skilled candidates with leading employers across Uganda.">
+    <meta property="og:type" content="website">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+      /* --- 1. Global Reset & Custom Properties --- */
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --dark-bg: #0f172a;
+    --light-bg: #f4f6f9;
+    --white: #ffffff;
+    --text-main: #334155;
+    --border-color: #cbd5e1;
+    --shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    --transition: all 0.2s ease-in-out;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+body {
+    background: var(--light-bg);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+/* --- 2. Layout & Accessibility Focus --- */
+main {
+    display: block;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 2px;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* --- 3. Header & Navigation Navigation --- */
+header {
+    background: var(--dark-bg);
+    color: var(--white);
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+header h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: #94a3b8;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    padding: 4px 0;
+}
+
+nav a:hover,
+nav a:active {
+    color: var(--white);
+}
+
+/* --- 4. Hero Visual Section --- */
+.hero {
+    text-align: center;
+    padding: 120px 20px;
+    background: linear-gradient(135deg, #1e40af 0%, var(--primary) 100%);
+    color: var(--white);
+}
+
+.hero h1 {
+    font-size: 2.75rem;
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #bfdbfe;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 30px;
+    background: var(--white);
+    color: var(--primary);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* --- 5. Clean Structured Form Layouts --- */
+section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: var(--dark-bg);
+    position: relative;
+}
+
+form {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #475569;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    color: var(--dark-bg);
+    background-color: var(--white);
+    transition: var(--transition);
+}
+
+input:hover,
+textarea:hover,
+select:hover {
+    border-color: #94a3b8;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+button {
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: var(--transition);
+    box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+}
+
+button:hover {
+    background: var(--primary-dark);
+    box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
+}
+
+/* --- 6. Search Interface Elements --- */
+.search-container {
+    max-width: 500px;
+    margin-bottom: 30px;
+}
+
+input[type="search"] {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' fill='none' viewBox='0 0 24 24' stroke='%2394a3b8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'/%3E%3C0vG%3E");
+    background-repeat: no-repeat;
+    background-position: 12px center;
+    background-size: 20px;
+    padding-left: 44px;
+}
+
+/* --- 7. Candidate Card Grid Architecture --- */
+.candidate-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.candidate-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    border: 1px solid #f1f5f9;
+    display: flex;
+    flex-direction: column;
+}
+
+.candidate-card h3 {
+    font-size: 1.25rem;
+    color: var(--dark-bg);
+    margin-bottom: 5px;
+}
+
+.experience-badge {
+    font-size: 0.85rem;
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 25px;
+    margin-top: auto; /* Pushes tags & button to the bottom evenly */
+}
+
+.tag {
+    background: #eff6ff;
+    color: #1e40af;
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 50px;
+}
+
+.btn-secondary {
+    background: #f1f5f9;
+    color: #475569;
+    box-shadow: none;
+}
+
+.btn-secondary:hover {
+    background: #e2e8f0;
+    color: var(--dark-bg);
+    box-shadow: none;
+}
+
+/* --- 8. Contact & Footer --- */
+#contact p {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+#contact a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+#contact a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    background: var(--dark-bg);
+    color: #64748b;
+    text-align: center;
+    padding: 30px 20px;
+    border-top: 1px solid #1e293b;
+    font-size: 0.9rem;
+}
+
+/* --- 9. Responsive Mobile Media Queries --- */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .hero {
+        padding: 80px 20px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    section {
+        padding: 50px 20px;
+    }
+
+    form {
+        padding: 24px;
+    }
+}
+
+    </style>
+    
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+    
+    // --- 1. Candidate Registration Form Handler ---
+    const candidateForm = document.getElementById("candidateForm");
+    
+    if (candidateForm) {
+        candidateForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            // Extract real form payload data safely
+            const formData = new FormData(this);
+            const candidateProfile = {
+                fullName: formData.get("fullName"),
+                email: formData.get("email"),
+                phone: formData.get("phone"),
+                professionalTitle: formData.get("professionalTitle"),
+                experienceLevel: formData.get("experienceLevel"),
+                professionalSummary: formData.get("professionalSummary"),
+                // Note: File uploads require multipart backend API processing
+                resumeName: formData.get("resumeFile")?.name || "No file selected"
+            };
+
+            // TODO: Replace console log with fetch("API_ENDPOINT") when backend is ready
+            console.log("Saving Candidate Payload:", candidateProfile);
+
+            alert("Thank you! Your profile has been submitted successfully.");
+            this.reset();
+        });
+    }
+
+    // --- 2. Live Search Directory Engine ---
+    const searchInput = document.getElementById("search");
+    
+    if (searchInput) {
+        searchInput.addEventListener("input", function () {
+            const queryValue = this.value.toLowerCase().trim();
+            const cards = document.querySelectorAll(".candidate-card");
+
+            cards.forEach(card => {
+                // Focus searches strictly on titles and tags, bypassing structural buttons
+                const titleText = card.querySelector("h3")?.textContent.toLowerCase() || "";
+                const skillsText = card.querySelector(".skills-tags")?.textContent.toLowerCase() || "";
+                const experienceText = card.querySelector(".experience-badge")?.textContent.toLowerCase() || "";
+                
+                const consolidatedSearchString = `${titleText} ${skillsText} ${experienceText}`;
+
+                // Toggle visibility safely without destroying CSS Grid/Flexbox values
+                if (consolidatedSearchString.includes(queryValue)) {
+                    card.style.removeProperty("display"); 
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        });
+    }
+
+    // --- 3. Employer Request Form Handler ---
+    const employerForm = document.getElementById("employerForm");
+    
+    if (employerForm) {
+        employerForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const employerRequest = {
+                companyName: formData.get("companyName"),
+                contactPerson: formData.get("contactPerson"),
+                businessEmail: formData.get("businessEmail"),
+                hiringNeeds: formData.get("hiringNeeds")
+            };
+
+            console.log("Saving Employer Request:", employerRequest);
+            
+            alert("Introduction request sent! We will contact you shortly.");
+            this.reset();
+        });
+    }
+});
+
+    </script>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <h2>HireConnect Uganda</h2>
+    </div>
+    <nav aria-label="Main Navigation">
+        <a href="#home">Home</a>
+        <a href="#register">Job Seekers</a>
+        <a href="#directory">Directory</a>
+        <a href="#request">Employers</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Connecting Talent With Opportunity</h1>
+        <p>Employers meet skilled candidates across Uganda.</p>
+        <a href="#register" class="btn">Register as Candidate</a>
+    </section>
+
+    <!-- Candidate Registration Form -->
+    <section id="register">
+        <h2>Job Seeker Registration</h2>
+        <form id="candidateForm">
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" placeholder="e.g., John Doe" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="name@example.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="+256 700 000000" required>
+            </div>
+
+            <div class="form-group">
+                <label for="title">Professional Title</label>
+                <input type="text" id="title" name="professionalTitle" placeholder="e.g., Full Stack Developer">
+            </div>
+
+            <div class="form-group">
+                <label for="experience">Experience Level</label>
+                <select id="experience" name="experienceLevel" required>
+                    <option value="" disabled selected>Select your experience</option>
+                    <option value="0-1">0-1 Years</option>
+                    <option value="2-5">2-5 Years</option>
+                    <option value="5+">5+ Years</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="summary">Professional Summary</label>
+                <textarea id="summary" name="professionalSummary" placeholder="Briefly describe your career achievements and key skills..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="resume">Upload CV / Resume (PDF)</label>
+                <input type="file" id="resume" name="resumeFile" accept=".pdf,.doc,.docx">
+            </div>
+
+            <button type="submit">Submit Profile</button>
+        </form>
+    </section>
+
+    <!-- Searchable Directory -->
+    <section id="directory" aria-labelledby="directoryHeading">
+        <h2 id="directoryHeading">Candidate Directory</h2>
+        
+        <div class="search-container">
+            <label for="search" class="visually-hidden">Search candidates by role or skill</label>
+            <input type="search" id="search" placeholder="Search candidates (e.g., React, Designer)...">
+        </div>
+
+        <div class="candidate-grid" aria-live="polite">
+            <!-- Dynamic Candidate Cards -->
+            <article class="candidate-card">
+                <h3>Software Engineer</h3>
+                <p class="experience-badge">5 Years Experience</p>
+                <div class="skills-tags">
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">React</span>
+                    <span class="tag">Node.js</span>
+                </div>
+                <button type="button" class="btn-secondary">View Profile</button>
+            </article>
+
+            <article class="candidate-card">
+                <h3>Graphic Designer</h3>
+                <p class="experience-badge">3 Years Experience</p>
+                <div class="skills-tags">
+                    <span class="tag">Photoshop</span>
+                    <span class="tag">Illustrator</span>
+                </div>
+                <button type="button" class="btn-secondary">View Profile</button>
+            </article>
+        </div>
+    </section>
+
+    <!-- Employer Request Form -->
+    <section id="request">
+        <h2>Request Candidate Introduction</h2>
+        <form id="employerForm">
+            <div class="form-group">
+                <label for="companyName">Company Name</label>
+                <input type="text" id="companyName" name="companyName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="contactPerson">Contact Person</label>
+                <input type="text" id="contactPerson" name="contactPerson" required>
+            </div>
+
+            <div class="form-group">
+                <label for="businessEmail">Business Email</label>
+                <input type="email" id="businessEmail" name="businessEmail" required>
+            </div>
+
+            <div class="form-group">
+                <label for="hiringNeeds">Describe your hiring needs</label>
+                <textarea id="hiringNeeds" name="hiringNeeds" placeholder="What roles are you looking to fill?"></textarea>
+            </div>
+
+            <button type="submit">Request Introduction</button>
+        </form>
+    </section>
+
+    <!-- Contact Details -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: <a href="mailto:bakakiyunus6@gmail.com">bakakiyunus6@gmail.com</a></p>
+        <p>Phone: <a href="tel:+2567482588">+256 748258838</a></p>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2026 HireConnect Uganda. All rights reserved.</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
